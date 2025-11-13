@@ -1,11 +1,14 @@
 local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
+
 local LocalPlayer = Players.LocalPlayer
 local PlaceId = game.PlaceId
 
 local Commands = {}
 
-local function AddCommand(trigger, callback, aliases)
+local API = {}
+
+function API:AddCommand(trigger, callback, aliases)
     Commands[trigger:lower()] = callback
     if aliases then
         for _, alias in ipairs(aliases) do
@@ -18,13 +21,15 @@ local function onPlayerChatted(message)
     local msgLower = message:lower()
     for trigger, callback in pairs(Commands) do
         if msgLower:match(trigger) then
-            callback(message)
+            task.spawn(callback, message)
         end
     end
 end
 
 LocalPlayer.Chatted:Connect(onPlayerChatted)
 
-AddCommand("!rejoin", function()
+API:AddCommand("!rejoin", function()
     TeleportService:Teleport(PlaceId, LocalPlayer)
 end, {"!rj"})
+
+return API
