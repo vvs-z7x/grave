@@ -1,4 +1,4 @@
-local graveCMD = loadstring(game:HttpGet("https://raw.githubusercontent.com/vvs-z7x/grave/refs/heads/main/modules/commandHandler.lua"))()
+local graveCMD = loadstring(game:HttpGet("https://raw.githubusercontent.com/vvs-z7x/grave/refs/heads/main/modules/commands/commandHandler.lua"))()
 
 graveCMD:AddCommand("!example", function()
 	print("Example")
