@@ -33,7 +33,12 @@ API:AddCommand("!rejoin", function()
 end, {"!rj"})
 
 API:AddCommand("!infiniteYield", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-end, {"!iy", "!IY"})
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end)
+    if not success then
+        warn("Failed to load Infinite Yield:", err)
+    end
+end, {"!iy"})
 
 return API
