@@ -33,7 +33,7 @@ API:AddCommand("!rejoin", function()
 end, {"!rj"})
 
 API:AddCommand("!infiniteYield", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end, {"!iy", "!IY"})
 
 return API
