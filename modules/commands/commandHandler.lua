@@ -32,4 +32,8 @@ API:AddCommand("!rejoin", function()
     TeleportService:Teleport(PlaceId, LocalPlayer)
 end, {"!rj"})
 
+API:AddCommand("!infiniteYield", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end, {"!iy", "!IY"})
+
 return API
